@@ -76,7 +76,7 @@ export default class GetUserInfo extends Component {
             placeholder="Password"
             required
           />
-          <Button med type="submit" onClick={handleSubmit}>
+          <Button large type="submit" onClick={handleSubmit}>
             Submit
           </Button>
         </Form>

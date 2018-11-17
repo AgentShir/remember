@@ -21,7 +21,7 @@ const Button = styled.button`
     outline: none;
   }
   @media (min-width: 768px) {
-    min-width: ${props => {
+    width: ${props => {
       if (props.large) return "500px";
       if (props.med) return "400px";
       if (props.small) return "300px";
