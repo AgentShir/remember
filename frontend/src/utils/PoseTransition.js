@@ -13,7 +13,7 @@ export default class PoseTransition extends Component {
     return (
       <Reveal
         pose={isVisible ? "visible" : "hidden"}
-        style={{ transition: "all 625ms ease-out" }}
+        style={{ transition: "all 425ms ease-out" }}
       >
         {this.props.children}
       </Reveal>

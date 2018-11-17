@@ -33,7 +33,9 @@ class Layout extends Component {
               }}
             />
             <BgMask />
-            <Transition>{children}</Transition>
+            <ContentContainer>
+              <Transition>{children}</Transition>
+            </ContentContainer>
           </StyledLayout>
         )}
       />
@@ -44,6 +46,15 @@ class Layout extends Component {
 //-------------Styles------------------//
 
 const StyledLayout = styled.main`
+  width: 100%;
+  height: 100vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const ContentContainer = styled.div`
   width: 100%;
   height: 100vh;
   color: white;
@@ -62,17 +73,22 @@ const StyledLayout = styled.main`
     color: white;
   }
 
+  overflow: scroll;
+  overflow-x: hidden;
+
   .inner {
     max-width: 1200px;
-    padding: 2rem;
-    padding-top: 4rem;
+    padding: 1rem;
+    padding-top: 1rem;
     display: flex;
     flex-direction: column;
     h1,
-    h2,
-    h3,
     p {
       margin-top: 2rem;
+    }
+    @media (min-width: 768px) {
+      padding: 2rem;
+      padding-top: 4rem;
     }
   }
 

@@ -22,5 +22,4 @@ class Transition extends Component {
     );
   }
 }
-
 export { Transition };
