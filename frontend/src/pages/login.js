@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import Layout from "../components/Layout";
+import LayoutWithNav from "../components/LayoutWithNav";
 
 export default class Login extends Component {
   render() {
     return (
-      <Layout>
+      <LayoutWithNav>
         <p>Login</p>
-      </Layout>
+      </LayoutWithNav>
     );
   }
 }

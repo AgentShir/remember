@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "gatsby-plugin-create-client-paths": "^2.0.2"
+  }
+}

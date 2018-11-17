@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import Layout from "../components/Layout";
+import LayoutWithNav from "../components/LayoutWithNav";
 import SignupForm from "../components/SignupForm";
 export default class Signup extends Component {
   render() {
     return (
-      <Layout>
+      <LayoutWithNav>
         <SignupForm />
-      </Layout>
+      </LayoutWithNav>
     );
   }
 }

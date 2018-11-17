@@ -3,8 +3,9 @@ import styled from "styled-components";
 import { StaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 import { Transition } from "../utils/Transition";
+import NavBar from "./NavBar";
 
-class Layout extends Component {
+class LayoutWithNav extends Component {
   render() {
     const { children } = this.props;
     return (
@@ -33,6 +34,7 @@ class Layout extends Component {
               }}
             />
             <BgMask />
+            <NavBar />
             <ContentContainer>
               <Transition>{children}</Transition>
             </ContentContainer>
@@ -133,4 +135,4 @@ const BgMask = styled.div`
   overflow: hidden;
 `;
 
-export default Layout;
+export default LayoutWithNav;
