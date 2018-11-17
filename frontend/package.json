@@ -20,6 +20,7 @@
     "gatsby-transformer-sharp": "^2.1.8",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
+    "react-pose": "^4.0.2",
     "react-typography": "^0.16.13",
     "styled-components": "^4.1.1",
     "typography": "^0.16.17",
