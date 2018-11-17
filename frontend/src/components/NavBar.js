@@ -10,7 +10,9 @@ export default class NavBar extends Component {
         <Link to="/">
           <StyledLogo />
         </Link>
-        <button>Log In</button>
+        <Link to="/login">
+          <h5>Log In</h5>
+        </Link>
       </StyledNav>
     );
   }
@@ -30,12 +32,9 @@ const StyledNav = styled.nav`
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-  button {
-    background-color: rgba(0, 0, 0, 0);
-    color: white;
-    border: none;
+    h5 {
+      color: white;
+    }
   }
 `;
 
