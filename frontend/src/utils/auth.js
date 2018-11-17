@@ -1,11 +1,12 @@
 const getUser = () => {
   if (window.localStorage.getItem("token")) {
     //return user from token
-    return null;
+    return false;
   }
-  return null;
+  return false;
 };
 
 export const isLoggedIn = () => {
-  return false;
+  const user = getUser();
+  return user;
 };

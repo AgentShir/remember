@@ -5,7 +5,7 @@ import Dashboard from "../../components/Dashboard";
 import PrivateRoute from "../../components/PrivateRoute";
 
 const app = () => (
-  <LayoutWithNav>
+  <LayoutWithNav loggedIn>
     <Router>
       <PrivateRoute path="/app/dashboard" component={Dashboard} />
     </Router>
