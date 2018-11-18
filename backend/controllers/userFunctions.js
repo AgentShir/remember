@@ -4,7 +4,7 @@ const User = mongoose.model("User");
 
 exports.validateRegister = (req, res, next) => {
   req.sanitizeBody("name");
-  req.checkBody("name", "You must enter a name!").notEmpty();
+  pty();
   req.checkBody("email", "You must enter a valid email!").isEmail();
   req.sanitizeBody("email").normalizeEmail({
     remove_dots: false,
@@ -13,10 +13,10 @@ exports.validateRegister = (req, res, next) => {
   });
   req.checkBody("password", "Password Cannt be Blank!").notEmpty();
   req
-    .checkBody("passwordConfirm", "Confirmation Password cannt be blank")
+    .checkBody("confirmPassword", "Confirmation Password cannt be blank")
     .notEmpty();
   req
-    .checkBody("passwordConfirm", "Ooops! Passwords do not match")
+    .checkBody("confirmPassword", "Ooops! Passwords do not match")
     .equals(req.body.password);
   const errors = req.validationErrors();
   if (errors) {
@@ -27,11 +27,6 @@ exports.validateRegister = (req, res, next) => {
 };
 
 exports.register = async (req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
   try {
     const user = new User({
       email: req.body.email,
