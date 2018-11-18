@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import Logo from "../assets/Logo";
 import { Link } from "gatsby";
+import { logOut } from "../utils/auth";
 
 export default class NavBar extends Component {
   render() {
@@ -11,7 +12,7 @@ export default class NavBar extends Component {
           <Link to="/">
             <StyledLogo />
           </Link>
-          <button className="flex">
+          <button className="flex" onClick={logOut}>
             <h5>Log Out</h5>
           </button>
         </StyledNav>
@@ -34,7 +35,7 @@ const StyledNav = styled.nav`
   height: 80px;
   width: 100vw;
   position: sticky;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(119, 143, 166, 0.4);
   top: 0;
   display: flex;
   justify-content: space-between;

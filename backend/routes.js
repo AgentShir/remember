@@ -12,10 +12,6 @@ router.post(
 
 router.post("/api/login", authFunctions.login);
 
-router.get(
-  "api/getUserInfo",
-  authFunctions.checkToken,
-  userFunctions.getUserInfo
-);
+router.post("/api/getuser", userFunctions.getUser);
 
 module.exports = router;

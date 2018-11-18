@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { registerUser } from "../utils/auth";
+import { navigate } from "gatsby";
+import { registerUser, loginUser } from "../utils/auth";
 import GetUserInfo from "./GetUserInfo";
 import GetUserType from "./GetUserType";
 import PoseTransition from "../utils/PoseTransition";
@@ -59,7 +60,15 @@ export default class SignupForm extends Component {
 
   handleSubmit = async event => {
     event.preventDefault();
-    const response = registerUser(this.state);
+    const user = await registerUser(this.state);
+    if (user) {
+      loginUser(this.state);
+      setTimeout(() => {
+        navigate("/app/dashboard");
+      }, 1000);
+    } else {
+      navigate("/error");
+    }
   };
 
   render() {

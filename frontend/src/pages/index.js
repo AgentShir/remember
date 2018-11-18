@@ -4,8 +4,20 @@ import styled from "styled-components";
 import Layout from "../components/Layout";
 import Logo from "../assets/Logo";
 import Button from "../components/Button";
+import { getUser } from "../utils/auth";
 
 export default class Index extends React.Component {
+  state = {
+    isLoaded: false,
+  };
+
+  componentDidMount = async () => {
+    const user = await getUser();
+    if (user) {
+      navigate("/app/dashboard");
+      return;
+    }
+  };
   render() {
     return (
       <Layout>

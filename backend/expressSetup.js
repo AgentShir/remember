@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const expressValidator = require("express-validator");
 const routes = require("./routes");
+const cors = require("cors");
 
 // Configure the express server middleware
 const app = express();
@@ -13,14 +14,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Expose data validation methods
 app.use(expressValidator());
 
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
+// Allow cors
+app.use(cors());
 
 app.use("/", routes);
 

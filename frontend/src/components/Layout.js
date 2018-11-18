@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { StaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
+import Helmet from "react-helmet";
+import favicon from "../assets/favicon.ico";
 import { Transition } from "../utils/Transition";
 
 class Layout extends Component {
@@ -22,6 +24,22 @@ class Layout extends Component {
         `}
         render={data => (
           <StyledLayout>
+            <Helmet
+              title="Remember"
+              meta={[
+                {
+                  name: "Remember",
+                  content: "Taking the weight off of funeral planning.",
+                },
+                {
+                  name: "keywords",
+                  content: "",
+                },
+              ]}
+              link={[
+                { rel: "shortcut icon", type: "image/png", href: `${favicon}` },
+              ]}
+            />
             <Img
               fluid={data.background.childImageSharp.fluid}
               style={{

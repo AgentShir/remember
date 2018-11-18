@@ -21,6 +21,7 @@ exports.login = async (req, res, next) => {
       lastName: user.lastName,
       zip: user.zip,
       email: user.email,
+      userType: user.userType,
     };
     jwt.sign(
       payload,

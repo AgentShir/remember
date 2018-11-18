@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import { navigate } from "gatsby";
 import LayoutWithNav from "../components/LayoutWithNav";
 import LoginForm from "../components/LoginForm";
-import { loginUser, getUser } from "../utils/auth";
+import { loginUser } from "../utils/auth";
 import PoseTransition from "../utils/PoseTransition";
 
 export default class Login extends Component {
@@ -25,7 +26,16 @@ export default class Login extends Component {
   handleSubmit = async event => {
     event.preventDefault();
     loginUser(this.state);
-    getUser();
+    setTimeout(() => {
+      navigate("/app/dashboard");
+    }, 1500);
+  };
+
+  componentDidMount = async () => {
+    //const user = await getUser();
+    //if (user) {
+    //    navigate("/app/dashboard");
+    //}
   };
 
   render() {

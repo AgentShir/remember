@@ -3,7 +3,6 @@ require("../models/User");
 const User = mongoose.model("User");
 
 exports.validateRegister = (req, res, next) => {
-  console.log("hi");
   req.sanitizeBody("name");
   req.checkBody("email", "You must enter a valid email!").isEmail();
   req.sanitizeBody("email").normalizeEmail({
@@ -34,6 +33,7 @@ exports.register = async (req, res, next) => {
       lastName: req.body.lastName,
       zip: req.body.zip,
       password: req.body.password,
+      userType: req.body.userType,
     });
     const data = await user.save();
     const email = data.email;
@@ -44,14 +44,14 @@ exports.register = async (req, res, next) => {
   }
 };
 
-exports.getUserInfo = async (req, res, next) => {
+exports.getUser = async (req, res, next) => {
   try {
     //Find the user with the provided email
     const user = await User.findOne({ email: req.body.email });
     if (!user) {
       res.status(500).send({ error: "No user found by that email" });
     }
-    res.JSON({ user: user });
+    res.send({ user: user });
   } catch (error) {
     res.send({ error });
   }

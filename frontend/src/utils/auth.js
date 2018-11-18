@@ -1,39 +1,39 @@
 import jwt_decode from "jwt-decode";
+import { navigate } from "gatsby";
 
-const getUser = async () => {
+const getUser = body => {
   const token = localStorage.getItem("token");
-  console.log(token);
+  const decoded = jwt_decode(token.slice(7, token.length));
   if (token) {
-    // decode the jwt
-    const decoded = jwt_decode(token.slice(7, token.length));
-    const email = decoded.email;
+    return decoded;
+  }
+  /*
     try {
       const response = await fetch(
-        "https://remember-backend.herokuapp.com/api/getUserInfo",
+        "https://remember-backend.herokuapp.com/api/getuser",
         {
-          method: "GET",
-          body: JSON.stringify({ email: email }),
+          method: "POST",
+          body: JSON.stringify({ ...body }),
           headers: {
             "content-type": "application/JSON",
-            authorization: token,
           },
         }
       );
       const data = await response.json();
-      console.log(data);
     } catch (error) {
       console.log(error);
     }
   }
+   */
 
   // if there isn't a user, return false
   return true;
 };
 
 const isLoggedIn = () => {
-  const user = getUser();
-  if (user) {
-    return user;
+  const token = localStorage.getItem("token");
+  if (token) {
+    return true;
   }
   return false;
 };
@@ -50,10 +50,11 @@ const registerUser = async body => {
         },
       }
     );
-    const data = await response.json();
-    console.log(data);
+    await response.json();
+
+    return true;
   } catch (error) {
-    return error;
+    navigate("/error");
   }
 };
 
@@ -76,4 +77,9 @@ const loginUser = async body => {
   }
 };
 
-export { loginUser, registerUser, getUser, isLoggedIn };
+const logOut = () => {
+  localStorage.removeItem("token");
+  navigate("/");
+};
+
+export { loginUser, registerUser, getUser, isLoggedIn, logOut };

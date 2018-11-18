@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { StaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
+import Helmet from "react-helmet";
+
+import favicon from "../assets/favicon.ico";
 import { Transition } from "../utils/Transition";
 import NavBar from "./NavBar";
 
@@ -23,6 +26,22 @@ class LayoutWithNav extends Component {
         `}
         render={data => (
           <StyledLayout>
+            <Helmet
+              title="Remember"
+              meta={[
+                {
+                  name: "Remember",
+                  content: "Taking the weight off of funeral planning.",
+                },
+                {
+                  name: "keywords",
+                  content: "",
+                },
+              ]}
+              link={[
+                { rel: "shortcut icon", type: "image/png", href: `${favicon}` },
+              ]}
+            />
             <Img
               fluid={data.background.childImageSharp.fluid}
               style={{
@@ -96,12 +115,19 @@ const ContentContainer = styled.div`
     flex-direction: column;
     h1,
     p {
-      margin-top: 2rem;
+      margin-top: 1rem;
+    }
+    &--headline {
+      font-size: 60px;
+      margin: 1.5rem auto;
     }
 
     @media (min-width: 768px) {
       padding: 2rem;
-      padding-top: 4rem;
+      &--headline {
+        font-size: 100px;
+        margin: 3rem auto;
+      }
     }
   }
 
