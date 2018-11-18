@@ -1,12 +1,23 @@
+import jwt_decode from "jwt-decode";
+
 const getUser = () => {
-  if (window.localStorage.getItem("token")) {
-    //return user from token
-    return false;
+  const token = localStorage.getItem("token");
+  if (token) {
+    // decode the jwt
+    const decoded = jwt_decode(token);
+
+    //return user data from token
+    return decoded;
   }
-  return false;
+
+  // if there isn't a user, return false
+  return true;
 };
 
 export const isLoggedIn = () => {
   const user = getUser();
-  return user;
+  if (user) {
+    return user;
+  }
+  return false;
 };

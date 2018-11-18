@@ -5,6 +5,18 @@ import { Link } from "gatsby";
 
 export default class NavBar extends Component {
   render() {
+    if (this.props.loggedIn) {
+      return (
+        <StyledNav>
+          <Link to="/">
+            <StyledLogo />
+          </Link>
+          <button className="flex">
+            <h5>Log Out</h5>
+          </button>
+        </StyledNav>
+      );
+    }
     return (
       <StyledNav>
         <Link to="/">
@@ -28,11 +40,29 @@ const StyledNav = styled.nav`
   justify-content: space-between;
   padding: 0 1rem;
 
+  button {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
   a {
     display: flex;
     align-items: center;
     justify-content: center;
     h5 {
+      color: white;
+    }
+  }
+
+  .flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h5 {
+      margin: 0 auto;
       color: white;
     }
   }

@@ -7,7 +7,7 @@ import NavBar from "./NavBar";
 
 class LayoutWithNav extends Component {
   render() {
-    const { children } = this.props;
+    const { children, loggedIn } = this.props;
     return (
       <StaticQuery
         query={graphql`
@@ -34,7 +34,7 @@ class LayoutWithNav extends Component {
               }}
             />
             <BgMask />
-            <NavBar />
+            <NavBar loggedIn={loggedIn} />
             <ContentContainer>
               <Transition>{children}</Transition>
             </ContentContainer>
