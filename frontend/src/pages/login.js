@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import LayoutWithNav from "../components/LayoutWithNav";
 import LoginForm from "../components/LoginForm";
-
+import { loginUser, getUser } from "../utils/auth";
 import PoseTransition from "../utils/PoseTransition";
 
 export default class Login extends Component {
@@ -22,9 +22,10 @@ export default class Login extends Component {
     });
   };
 
-  handleSubmit = event => {
+  handleSubmit = async event => {
     event.preventDefault();
-    //TODO Login
+    loginUser(this.state);
+    getUser();
   };
 
   render() {

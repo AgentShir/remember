@@ -3,8 +3,8 @@ require("../models/User");
 const User = mongoose.model("User");
 
 exports.validateRegister = (req, res, next) => {
+  console.log("hi");
   req.sanitizeBody("name");
-  pty();
   req.checkBody("email", "You must enter a valid email!").isEmail();
   req.sanitizeBody("email").normalizeEmail({
     remove_dots: false,

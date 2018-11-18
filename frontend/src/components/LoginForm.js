@@ -12,7 +12,7 @@ export default class LoginForm extends Component {
       password,
     } = this.props;
     return (
-      <Form onSubmit={handleSubmit}>
+      <Form method="POST" onSubmit={handleSubmit}>
         <label htmlFor="email">Email</label>
         <input
           type="email"

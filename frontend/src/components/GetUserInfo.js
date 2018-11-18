@@ -21,7 +21,7 @@ export default class GetUserInfo extends Component {
     } = this.props;
     return (
       <>
-        <Form onSubmit={handleSubmit}>
+        <Form method="POST" onSubmit={handleSubmit}>
           <label htmlFor="firstName">First Name</label>
           <input
             type="text"
@@ -29,7 +29,7 @@ export default class GetUserInfo extends Component {
             value={firstName}
             onChange={handleFirstNameChange}
             placeholder="First Name"
-            required
+            required={true}
           />
           <label htmlFor="lastName">Last Name</label>
           <input
@@ -38,7 +38,7 @@ export default class GetUserInfo extends Component {
             value={lastName}
             onChange={handleLastNameChange}
             placeholder="Last Name"
-            required
+            required={true}
           />
           <label htmlFor="zip">Zip Code</label>
           <input
@@ -47,7 +47,7 @@ export default class GetUserInfo extends Component {
             value={zip}
             onChange={handleZipChange}
             placeholder="Zip Code"
-            required
+            required={true}
           />
           <label htmlFor="email">Email</label>
           <input
@@ -56,7 +56,7 @@ export default class GetUserInfo extends Component {
             value={email}
             onChange={handleEmailChange}
             placeholder="Email"
-            required
+            required={true}
           />
           <label htmlFor="password">Password</label>
           <input
@@ -65,7 +65,7 @@ export default class GetUserInfo extends Component {
             value={password}
             onChange={handlePasswordChange}
             placeholder="Password"
-            required
+            required={true}
           />
           <label htmlFor="confimPassword">Confirm Password</label>
           <input
@@ -74,7 +74,7 @@ export default class GetUserInfo extends Component {
             value={confirmPassword}
             onChange={handleConfirmPasswordChange}
             placeholder="Password"
-            required
+            required={true}
           />
           <Button large type="submit" onClick={handleSubmit}>
             Submit

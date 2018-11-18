@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { registerUser } from "../utils/auth";
 import GetUserInfo from "./GetUserInfo";
 import GetUserType from "./GetUserType";
 import PoseTransition from "../utils/PoseTransition";
@@ -59,23 +59,7 @@ export default class SignupForm extends Component {
 
   handleSubmit = async event => {
     event.preventDefault();
-    console.log(JSON.stringify({ ...this.state }));
-    try {
-      const response = await fetch(
-        "https://remember-backend.herokuapp.com/api/register",
-        {
-          method: "POST",
-          body: JSON.stringify({ ...this.state }),
-          headers: {
-            "content-type": "application/JSON",
-          },
-        }
-      );
-      const data = await response.json();
-      console.log(data);
-    } catch (error) {
-      console.log("Sorry, an error has occured");
-    }
+    const response = registerUser(this.state);
   };
 
   render() {
