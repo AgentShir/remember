@@ -6,7 +6,6 @@ exports.login = async (req, res, next) => {
   try {
     //Find the user with the provided email
     const user = await User.findOne({ email: req.body.email });
-    console.log(user);
     if (!user) {
       res.status(500).send({ error: "No user found by that email" });
     }

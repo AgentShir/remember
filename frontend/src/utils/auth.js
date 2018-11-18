@@ -1,14 +1,29 @@
 import jwt_decode from "jwt-decode";
 
-const getUser = () => {
+const getUser = async () => {
   const token = localStorage.getItem("token");
   console.log(token);
   if (token) {
     // decode the jwt
     const decoded = jwt_decode(token.slice(7, token.length));
-    console.log(decoded);
-    //return user data from token
-    return decoded;
+    const email = decoded.email;
+    try {
+      const response = await fetch(
+        "https://remember-backend.herokuapp.com/api/getUserInfo",
+        {
+          method: "GET",
+          body: JSON.stringify({ email: email }),
+          headers: {
+            "content-type": "application/JSON",
+            authorization: token,
+          },
+        }
+      );
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   // if there isn't a user, return false
