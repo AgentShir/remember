@@ -4,7 +4,7 @@ const getUser = () => {
   const token = localStorage.getItem("token");
   if (token) {
     // decode the jwt
-    const decoded = jwt_decode(token);
+    const decoded = jwt_decode(token.slice(7, token.length));
 
     //return user data from token
     return decoded;

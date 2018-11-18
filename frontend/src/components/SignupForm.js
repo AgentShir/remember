@@ -57,10 +57,22 @@ export default class SignupForm extends Component {
     });
   };
 
-  handleSubmit = event => {
+  handleSubmit = async event => {
     event.preventDefault();
-    //TODO implement form submission
-    //TODO login customer
+    console.log(JSON.stringify({ ...this.state }));
+    try {
+      const response = await fetch("localhost:7777/api/register", {
+        method: "POST",
+        body: JSON.stringify({ ...this.state }),
+        headers: {
+          "content-type": "application/JSON",
+        },
+      });
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.log("Sorry, an error has occured");
+    }
   };
 
   render() {

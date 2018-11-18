@@ -1,20 +1,22 @@
 {
-    "name": "remember-backend",
-    "version": "1.0.0",
-    "main": "index.js",
-    "author": "Marshall Tuinier",
-    "license": "MIT",
-    "scripts": {
-      "prod": "node ./app.js",
-      "start": "nodemon ./app.js"
-    },
-    "dependencies": {
-      "bcrypt": "^3.0.2",
-      "body-parser": "^1.18.3",
-      "dotenv": "^6.1.0",
-      "express": "^4.16.4",
-      "jsonwebtoken": "^8.3.0",
-      "mongoose": "^5.3.4",
-      "nodemon": "^1.18.4"
-    }
+  "name": "remember-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Marshall Tuinier",
+  "license": "MIT",
+  "scripts": {
+    "prod": "node ./app.js",
+    "start": "nodemon ./app.js"
+  },
+  "dependencies": {
+    "bcrypt": "^3.0.2",
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.1.0",
+    "express": "^4.16.4",
+    "express-validator": "^5.3.0",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.3.4",
+    "mongoose-mongodb-errors": "^0.0.2",
+    "nodemon": "^1.18.4"
   }
+}
