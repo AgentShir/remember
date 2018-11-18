@@ -9,4 +9,7 @@ router.post(
   userFunctions.validateRegister,
   userFunctions.register
 );
-router.get("/api/login", authFunctions.login);
+
+router.post("/api/login", authFunctions.login);
+
+module.exports = router;

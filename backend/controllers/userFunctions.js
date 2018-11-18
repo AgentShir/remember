@@ -3,7 +3,6 @@ require("../models/User");
 const User = mongoose.model("User");
 
 exports.validateRegister = (req, res, next) => {
-  console.log("derp");
   req.sanitizeBody("name");
   req.checkBody("name", "You must enter a name!").notEmpty();
   req.checkBody("email", "You must enter a valid email!").isEmail();
@@ -28,6 +27,11 @@ exports.validateRegister = (req, res, next) => {
 };
 
 exports.register = async (req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
   try {
     const user = new User({
       email: req.body.email,

@@ -1,8 +1,4 @@
 module.exports = {
-  proxy: {
-    prefix: "/api/",
-    url: "localhost:7777",
-  },
   plugins: [
     {
       resolve: `gatsby-plugin-styled-components`,

@@ -1,7 +1,5 @@
 const mongoose = require("mongoose");
-const authFunctions = require("./conrollers/authFunctions");
-const userFunctions = require("./conrollers/userFunctions");
-require("./models/User");
+
 // import environmental variables from our variables.env file
 require("dotenv").config({ path: "variables.env" });
 
@@ -21,9 +19,6 @@ db.once("open", () => {
 require("./models/User");
 
 const app = require("./expressSetup");
-
-app.post("/register", userFunctions.validateRegister, userFunctions.register);
-app.get("/login", authFunctions.login);
 
 // Start the Express server
 app.set("port", process.env.PORT || 7777);
