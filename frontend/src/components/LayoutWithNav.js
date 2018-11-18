@@ -5,7 +5,7 @@ import Img from "gatsby-image";
 import Helmet from "react-helmet";
 
 import favicon from "../assets/favicon.ico";
-import { Transition } from "../utils/Transition";
+import PoseTransition from "../utils/PoseTransition";
 import NavBar from "./NavBar";
 
 class LayoutWithNav extends Component {
@@ -55,7 +55,9 @@ class LayoutWithNav extends Component {
             <BgMask />
             <NavBar loggedIn={loggedIn} />
             <ContentContainer>
-              <Transition>{children}</Transition>
+              <PoseTransition>
+                {console.log(children) || children}
+              </PoseTransition>
             </ContentContainer>
           </StyledLayout>
         )}
@@ -79,6 +81,7 @@ const StyledLayout = styled.main`
     background: transparent; /* optional: just make scrollbar invisible */
   }
   overflow-x: hidden;
+  position: relative;
 `;
 
 const ContentContainer = styled.div`
@@ -88,6 +91,7 @@ const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
   padding: 1rem;
   font-size: 14pt;
   h1,
@@ -113,6 +117,7 @@ const ContentContainer = styled.div`
     padding-top: 1rem;
     display: flex;
     flex-direction: column;
+    position: relative;
     h1,
     p {
       margin-top: 1rem;
@@ -120,6 +125,11 @@ const ContentContainer = styled.div`
     &--headline {
       font-size: 60px;
       margin: 1.5rem auto;
+    }
+    &--flex {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
     }
 
     @media (min-width: 768px) {

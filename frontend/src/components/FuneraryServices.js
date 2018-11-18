@@ -6,6 +6,7 @@ import { Link } from "gatsby";
 import VendorContainer from "./VendorContainer";
 import VendorWrapper from "./VendorWrapper";
 import StepCounter from "./StepCounter";
+import BigRedBox from "./BigRedBox";
 
 export default class FuneraryServices extends Component {
   render() {
@@ -62,13 +63,21 @@ export default class FuneraryServices extends Component {
         render={data => (
           <div className="inner">
             <StepCounter location={this.props.location} />
-            <h2 className="inner--headline">Funerary Services</h2>
+            <div className="inner--flex">
+              <h2 className="inner--headline">Funerary Services</h2>
+              <BigRedBox>!</BigRedBox>
+            </div>
             <p>
               Unfortunately {user.name}, dealing with the loss of a loved one is
               something that needs to be taken care of, from decisions on
               burial/cremation, to memorial services and venues. Our funerary
               experts have been curated from top experts in your area, and are
               here to help in every way possible.
+            </p>
+            <p>
+              (Note, once selected and purchased, various state laws inhibit the
+              transfer of funeral home services or impose mandatory additional
+              fees)
             </p>
             <VendorContainer>
               <VendorWrapper

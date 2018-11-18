@@ -5,16 +5,16 @@ export default class PoseTransition extends Component {
   state = { isVisible: false };
 
   componentDidMount() {
-    this.setState({ isVisible: true });
+    setTimeout(() => {
+      console.log("time");
+      this.setState({ isVisible: true });
+    }, 100);
   }
 
   render() {
     const { isVisible } = this.state;
     return (
-      <Reveal
-        pose={isVisible ? "visible" : "hidden"}
-        style={{ transition: "all 425ms ease-out" }}
-      >
+      <Reveal pose={isVisible ? "visible" : "hidden"}>
         {this.props.children}
       </Reveal>
     );
@@ -22,6 +22,10 @@ export default class PoseTransition extends Component {
 }
 
 const Reveal = posed.div({
-  hidden: { opacity: 0, transform: "scale(0.8)" },
+  hidden: { opacity: 0, transform: "scale(0.95)" },
   visible: { opacity: 1, transform: "scale(1)" },
+  transition: {
+    opacity: { ease: "easeOut", duration: 2000 },
+    transform: { ease: "easeOut", duration: 2000 },
+  },
 });

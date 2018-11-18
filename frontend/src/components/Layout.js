@@ -4,7 +4,7 @@ import { StaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 import Helmet from "react-helmet";
 import favicon from "../assets/favicon.ico";
-import { Transition } from "../utils/Transition";
+import PoseTransition from "../utils/PoseTransition";
 
 class Layout extends Component {
   render() {
@@ -52,7 +52,7 @@ class Layout extends Component {
             />
             <BgMask />
             <ContentContainer>
-              <Transition>{children}</Transition>
+              <PoseTransition>{children}</PoseTransition>
             </ContentContainer>
           </StyledLayout>
         )}

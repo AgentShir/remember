@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import Logo from "../assets/Logo";
-import { Link } from "gatsby";
+import { Link, navigate } from "gatsby";
 import { logOut } from "../utils/auth";
 
 export default class NavBar extends Component {
@@ -23,9 +23,9 @@ export default class NavBar extends Component {
         <Link to="/">
           <StyledLogo />
         </Link>
-        <Link to="/login">
+        <button className="flex" onClick={() => navigate("/login")}>
           <h5>Log In</h5>
-        </Link>
+        </button>
       </StyledNav>
     );
   }
